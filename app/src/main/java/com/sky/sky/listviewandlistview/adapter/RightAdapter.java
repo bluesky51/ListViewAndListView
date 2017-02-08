@@ -53,10 +53,7 @@ public class RightAdapter extends BaseAdapter implements SectionIndexer{
             TextView tvSalecount = (TextView) convertView.findViewById(R.id.product_salecount_view);
             TextView tvTitle = (TextView) convertView.findViewById(R.id.product_name_view);
             ImageView productImage = (ImageView) convertView.findViewById(R.id.product_imageView);
-            //TextView countView = (TextView) convertView.findViewById(R.id.add_count_view);
             TextView tvPrice = (TextView) convertView.findViewById(R.id.product_price_view);
-//            ImageView removeProductImage = (ImageView) convertView.findViewById(R.id.delete_product_view);
-//            ImageView addProductImage = (ImageView) convertView.findViewById(R.id.add_product_view);
             viewProductHolder = new ViewProductHolder(tvPrice, tvTag,
                     tvSalecount, tvTitle,  productImage);
 
@@ -64,7 +61,7 @@ public class RightAdapter extends BaseAdapter implements SectionIndexer{
         } else {
             viewProductHolder = (ViewProductHolder) convertView.getTag();
         }
-//如果有该类型，则隐藏
+        //如果有该类型，则隐藏
         int section = getSectionForPosition(position);
         if (position == getPositionForSection(section)) {
             viewProductHolder.tvTag.setVisibility(View.VISIBLE);

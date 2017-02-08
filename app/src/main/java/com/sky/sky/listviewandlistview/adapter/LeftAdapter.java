@@ -1,7 +1,6 @@
 package com.sky.sky.listviewandlistview.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,7 +58,6 @@ public class LeftAdapter extends BaseAdapter {
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        Log.i("fuck_getview", "success");
         viewHolder.tvSection.setText(String.valueOf(mContent.getMenuSection()));
 
         viewHolder.tvTag.setText(mContent.getMenuTag());

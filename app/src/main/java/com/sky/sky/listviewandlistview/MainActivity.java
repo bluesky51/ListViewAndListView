@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
     private int lastFirstVisibleItem = -1;
     private  TextView title_layout_catalog;
     private  List<Product> productList;
+    private RightAdapter rightAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,13 +65,9 @@ public class MainActivity extends AppCompatActivity {
         right_listview = (ListView) findViewById(R.id.right_listview);
 
         productList= Parser.getCateProductList(this);
-        final RightAdapter rightAdapter = new RightAdapter(productList, this);
+        rightAdapter = new RightAdapter(productList, this);
         right_listview.setAdapter(rightAdapter);
-        Log.e("＝＝＝＝","===right==="+right_listview.getChildCount());
-        final LeftAdapter leftAdapter = new LeftAdapter(this, productList);
-        left_listview.setAdapter(leftAdapter);
-        Log.e("＝＝＝＝","===left==="+left_listview.getChildCount());
-
+        left_listview.setAdapter(new LeftAdapter(this, productList));
         right_listview.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
@@ -118,7 +115,6 @@ public class MainActivity extends AppCompatActivity {
                 if (location != -1) {
                     right_listview.setSelection(location);
                 }
-                Log.e("======","===click===="+productList.get(location).getTitle());
                 title_layout_catalog.setText(productList.get(location).getTitle());
                 lastView = view;
             }
